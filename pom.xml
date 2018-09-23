@@ -49,6 +49,18 @@
 			<scope>test</scope>
 		</dependency>
                 
+                
+                <!--  palntilla norellanac -->
+                <!--  dependencia jsp y jstl  -->
+                <dependency>
+                    <groupId>org.apache.tomcat.embed</groupId>
+                    <artifactId>tomcat-embed-jasper</artifactId>
+                </dependency>
+                <!--  dependencia jstl  -->
+                <dependency>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>jstl</artifactId>
+                </dependency>
                 <!-- ORACLE-->
                 <!-- ojdbc6.jar example -->
                 <dependency>
