@@ -14,14 +14,9 @@ public class HomeController {
     //@Autowired	
   
     @GetMapping("/hi")
-	public String init(HttpServletRequest req) {
+	public String test(HttpServletRequest req) {
                 return "index";
 	}
         
-    @GetMapping("home")
-    public ModelAndView home() {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("index");
-        return mav;
-    }
+   
 }
