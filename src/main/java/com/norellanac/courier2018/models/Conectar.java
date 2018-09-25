@@ -10,8 +10,8 @@ public class Conectar {
         DriverManagerDataSource dataSource=new DriverManagerDataSource();
         dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
         dataSource.setUrl("jdbc:oracle:thin:@172.17.0.1:1521:XE"); //ip del bridge de docker ya que oracle corre en docker
-        dataSource.setUsername("TESTDB2");
-        dataSource.setPassword("Oracle_11g");
+        dataSource.setUsername("analisis2018");
+        dataSource.setPassword("oracle");
         return dataSource;
         
     }

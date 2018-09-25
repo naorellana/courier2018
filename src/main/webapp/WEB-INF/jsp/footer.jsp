@@ -1,1 +1,1 @@
-<jsp:include page="module/footerB.jsp" />
+<jsp:include page="module/footerM.jsp" />
