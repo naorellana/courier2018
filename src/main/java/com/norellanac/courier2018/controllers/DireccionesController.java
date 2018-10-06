@@ -4,7 +4,9 @@ package com.norellanac.courier2018.controllers;
 
 import com.norellanac.courier2018.models.Conectar;
 import com.norellanac.courier2018.models.Departamento;
+import com.norellanac.courier2018.models.Direccion;
 import com.norellanac.courier2018.models.Municipio;
+import com.norellanac.courier2018.models.Pais;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.SQLSyntaxErrorException;
@@ -39,7 +41,7 @@ public class DireccionesController {
                 List datos=this.jdbcTemplate.queryForList(sql);
 		req.setAttribute("datos",datos);
 		//req.setAttribute("mode", "BOOK_VIEW");
-		return "direcciones/home_1";
+		return "departamentos/table";
 	}
         
     @GetMapping("/newDep")
@@ -48,7 +50,7 @@ public class DireccionesController {
         //List usuarios=this.jdbcTemplate.queryForList(sql);
         //req.setAttribute("usuarios",usuarios);
         req.setAttribute("action", "saveDep");
-        return "direcciones/add_U_1";
+        return "departamentos/add";
     }
 
     @GetMapping("saveDep")
@@ -66,7 +68,7 @@ public class DireccionesController {
         List data = this.jdbcTemplate.queryForList(sql);
         req.setAttribute("data", data.get(0));//obtiene un array con un registro en la posicion 0
         req.setAttribute("action", "updateDep");
-        return "direcciones/add_U_1";
+        return "departamentos/add";
     }
 
     @GetMapping("/deleteDep")
@@ -156,7 +158,127 @@ public class DireccionesController {
         resp.sendRedirect("municipio");
     }
     //*******************************************************************************************
+   
     
+    
+    //************tabla PAIS*********
+    @GetMapping("/pais")
+    public String pais(HttpServletRequest req) {
+        String sql = "select * from ta_pais order by ID_PAIS desc";
+        List datos = this.jdbcTemplate.queryForList(sql);
+        req.setAttribute("datos", datos);
+        //req.setAttribute("mode", "BOOK_VIEW");
+        return "pais/table";
+    }
+
+    @GetMapping("/newPais")
+    public String newPais(HttpServletRequest req) {
+        req.setAttribute("action", "savePais");
+        return "pais/add";
+    }
+
+    @GetMapping("savePais")
+    public void savePais(@ModelAttribute Pais objetoDB, HttpServletResponse resp) throws IOException {
+        jdbcTemplate.update("insert into ta_pais (ID_PAIS,PAIS) values (?,?)",
+                objetoDB.getID_PAIS(), objetoDB.getPAIS());
+        resp.sendRedirect("/pais");
+    }
+
+    @GetMapping("editPais")
+    public String editPais(@RequestParam int id, HttpServletRequest req) {
+        String sql = "SELECT * FROM ta_pais WHERE ID_PAIS='" + id + "'";
+        List data = this.jdbcTemplate.queryForList(sql);
+        req.setAttribute("data", data.get(0));//obtiene un array con un registro en la posicion 0
+        req.setAttribute("action", "updatePais");
+        return "pais/add";
+    }
+
+    @GetMapping("/deletePais")
+    public void deletePais(@RequestParam long id, HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        this.jdbcTemplate.update(
+                "delete from ta_pais "
+                + "where "
+                + "ID_PAIS=? ",
+                id);
+        resp.sendRedirect("pais");
+    }
+
+    @GetMapping("/updatePais")
+    public void updatePais(@ModelAttribute Pais objDb, HttpServletResponse resp) throws IOException {
+        jdbcTemplate.update("update ta_pais "
+                + "set PAIS=?"
+                + "where ID_PAIS=? ",
+                objDb.getPAIS(),objDb.getID_PAIS());
+        resp.sendRedirect("pais");
+    }
+    //*******************************************************************************************
+    
+    
+    //************tabla DIRECCIONES*********
+    @GetMapping("/direccion")
+    public String direccion(HttpServletRequest req) {
+        String sql = "select * from ta_direccion order by ID_DIRECCION desc";
+        List datos = this.jdbcTemplate.queryForList(sql);
+        req.setAttribute("datos", datos);
+        //req.setAttribute("mode", "BOOK_VIEW");
+        return "direcciones/table";
+    }
+
+    @GetMapping("/newDir")
+    public String newDir(HttpServletRequest req) {
+        String sql = "SELECT * FROM ta_municipio";
+        List dependencia = this.jdbcTemplate.queryForList(sql);
+        req.setAttribute("dependencia", dependencia);
+        req.setAttribute("action", "saveDir");
+        return "direcciones/add";
+    }
+
+    @GetMapping("saveDir")
+    public void saveDir(@ModelAttribute Direccion objetoDB, HttpServletResponse resp) throws IOException {
+        jdbcTemplate.update("insert into ta_direccion (ID_DIRECCION,ID_MUN,CALLE,AVENIDA,ZONA) values (?,?,?,?,?)",
+                objetoDB.getID_DIRECCION(), objetoDB.getID_MUN(), objetoDB.getCALLE(),objetoDB.getAVENIDA(), objetoDB.getZONA());
+        resp.sendRedirect("/direccion");
+    }
+
+    @GetMapping("/updateDir")
+    public void updateDir(@ModelAttribute Direccion objDb, HttpServletResponse resp, HttpServletRequest req) throws IOException {
+        //try{
+        jdbcTemplate.update("update ta_direccion "
+                + "set ID_MUN=?,"
+                + "CALLE=?, "
+                + "AVENIDA=?, "
+                + "ZONA=? "
+                + "where ID_DIRECCION=? ",
+                objDb.getID_MUN(), objDb.getCALLE(), objDb.getAVENIDA(), objDb.getZONA(), objDb.getID_DIRECCION());
+        resp.sendRedirect("direccion");
+        //}
+
+    }
+
+    @GetMapping("editDir")
+    public String editDir(@RequestParam int id, HttpServletRequest req) {
+        String sql = "SELECT * FROM ta_direccion WHERE ID_DIRECCION='" + id + "'";
+        List data = this.jdbcTemplate.queryForList(sql);
+        req.setAttribute("data", data.get(0));//obtiene un array con un registro en la posicion 0
+
+        String sqlDep = "SELECT * FROM ta_municipio";
+        List dependencia = this.jdbcTemplate.queryForList(sqlDep);
+        req.setAttribute("dependencia", dependencia);
+
+        req.setAttribute("action", "updateDir");
+        return "direcciones/add";
+    }
+
+    @GetMapping("/deleteDir")
+    public void deleteDir(@RequestParam long id, HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        this.jdbcTemplate.update(
+                "delete from ta_direccion "
+                + "where "
+                + "ID_DIRECCION=? ",
+                id);
+        resp.sendRedirect("municipio");
+    }
+    //*******************************************************************************************
     
 
     

@@ -4,22 +4,18 @@
 <jsp:include page="../header.jsp" />
 
 
-    <div class="row">
-        <form class="col s12" action="${action}">
-            <div class="row">
-                <div class="input-field col s6">
+    <div class=" ">
+        <form class=" center-align" action="${action}">
+            <h1>País </h1>
+            <div class="">
+                <div class="input-field col 12">
                     <i class="material-icons prefix">vpn_key</i>
-                    <input id="icon_prefix" type="number" class="validate" name="ID_MUN"  placeholder="Ingrese ID" value="${data.ID_MUN}">
+                    <input id="icon_prefix" type="number" class="validate" name="ID_PAIS"  placeholder="Ingrese ID" value="${data.ID_PAIS}">
                     <label for="icon_prefix">ID</label>
                 </div>
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">vpn_key</i>
-                    <input id="icon_prefix" type="number" class="validate" name="ID_DEPTO"  placeholder="Ingrese ID_DEPTO" value="${data.ID_DEPTO}">
-                    <label for="icon_prefix">ID</label>
-                </div>
-                <div class="input-field col s12">
+                <div class="input-field col 12">
                     <i class="material-icons prefix">short_text</i>
-                    <input id="icon_telephone" type="text" class="validate" name="MUNICIPIO"  placeholder="Descripción" value="${data.MUNICIPIO}">
+                    <input id="icon_telephone" type="text" class="validate" name="PAIS"  placeholder="Descripción" value="${data.PAIS}">
                     <label for="icon_telephone">DESCRIPCION</label>
                 </div>
             </div>

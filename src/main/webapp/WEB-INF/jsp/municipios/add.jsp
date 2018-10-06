@@ -8,13 +8,15 @@
 
 
     <div class="row">
-        <form class="col s12" action="${action}">
+        <form class="col s12 center-align" action="${action}">
+            <h1>Municipios </h1>
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">vpn_key</i>
                     <input id="icon_prefix" type="number" class="validate" name="ID_MUN"  placeholder="Ingrese ID" value="${data.ID_MUN}">
                     <label for="icon_prefix">ID</label>
                 </div>
+                    
                 <div class="input-field col s6">
                     <div class="input-field col s12">
                         <select name="ID_DEPTO">
