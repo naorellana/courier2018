@@ -9,18 +9,18 @@
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">vpn_key</i>
-                    <input id="icon_prefix" type="number" class="validate" name="ID_DEPTO"  placeholder="Ingrese ID" value="${data.ID_DEPTO}">
-                    <label for="icon_prefix">First Name</label>
+                    <input id="icon_prefix" type="number" class="validate" name="ID_MUN"  placeholder="Ingrese ID" value="${data.ID_MUN}">
+                    <label for="icon_prefix">ID</label>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">vpn_key</i>
-                    <input id="icon_prefix" type="number" class="validate" name="ID_PAIS"  placeholder="Ingrese ID_PAIS" value="${data.ID_PAIS}">
-                    <label for="icon_prefix">Pais</label>
+                    <input id="icon_prefix" type="number" class="validate" name="ID_DEPTO"  placeholder="Ingrese ID_DEPTO" value="${data.ID_DEPTO}">
+                    <label for="icon_prefix">ID</label>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">short_text</i>
-                    <input id="icon_telephone" type="text" class="validate" name="DEPTO"  placeholder="Descripción" value="${data.DEPTO}">
-                    <label for="icon_telephone">Telephone</label>
+                    <input id="icon_telephone" type="text" class="validate" name="MUNICIPIO"  placeholder="Descripción" value="${data.MUNICIPIO}">
+                    <label for="icon_telephone">DESCRIPCION</label>
                 </div>
             </div>
                     <button class="btn waves-effect waves-light" type="submit" name="action">${action}
