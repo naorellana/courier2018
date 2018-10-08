@@ -16,21 +16,23 @@
         <nav class="black lighten-1" role="navigation">
             <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">App</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="home">CRUD</a></li>
-                    <li><a href="home">Usuarios</a></li>
+                    <li><a href="estado">ESTADO</a></li>
+                    <li><a href="usuario">tipoUsuario</a></li>
                     <li><a href="departamento">Departamentos</a></li>
                     <li><a href="municipio">Municipios</a></li>
                     <li><a href="pais">País</a></li>
                     <li><a href="direccion">Dirección</a></li>
+                    <li><a href="logout">Cerrar Sesion</a></li>
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">                 
-                    <li><a href="home">CRUD</a></li>
-                    <li><a href="home">Usuarios</a></li>
+                    <li><a href="estado">ESTADO</a></li>
+                    <li><a href="usuario">tipoUsuario</a></li>
                     <li><a href="departamento">Departamentos</a></li>
                     <li><a href="municipio">Municipios</a></li>
                     <li><a href="pais">País</a></li>
                     <li><a href="direccion">Dirección</a></li>
+                    <li><a href="logout">Cerrar Sesion</a></li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
