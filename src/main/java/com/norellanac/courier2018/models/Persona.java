@@ -8,13 +8,14 @@ public class Persona {
     -no lleva idpersona
     -no lleva nacionalidad
     */
-    private int ID_PERSONA, DPI, EDAD; 
-    private String NOMBRES,APELLIDOS, NACIONALIDAD;
+    private int ID_PERSONA,  EDAD; 
+    Double DPI;
+    private String  NOMBRES,APELLIDOS, NACIONALIDAD;
 
     public Persona() {
     }
 
-    public int getID_PERSONA() {
+    public long getID_PERSONA() {
         return ID_PERSONA;
     }
 
@@ -22,11 +23,11 @@ public class Persona {
         this.ID_PERSONA = ID_PERSONA;
     }
 
-    public int getDPI() {
+    public Double getDPI() {
         return DPI;
     }
 
-    public void setDPI(int DPI) {
+    public void setDPI(Double DPI) {
         this.DPI = DPI;
     }
 

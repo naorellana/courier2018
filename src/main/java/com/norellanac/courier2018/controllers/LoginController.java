@@ -40,8 +40,5 @@ public class LoginController
         }
         return "redirect:/login?logout=true";
     }
-    @GetMapping("/fonts/roboto/Roboto-Light.woff-")
-	public String test(HttpServletRequest req) {
-                return "index";
-	}
+
 }

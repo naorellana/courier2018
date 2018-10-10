@@ -1,24 +1,28 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="header.jsp" />
-
-    <h1>Spring Security 5 - Login Form</h1>
- 
-    <c:if test="${not empty errorMessge}"><div style="color:red; font-weight: bold; margin: 30px 0px;">${errorMessge}</div></c:if>
- 
-    <form name='login' action="/login" method='POST'>
-        <table>
-            <tr>
-                <td>UserName:</td>
-                <td><input type='text' name='username' value=''></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><input type='password' name='password' /></td>
-            </tr>
-            <tr>
-                <td colspan='2'><input name="submit" type="submit" value="submit" /></td>
-            </tr>
-        </table>
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-    </form>
-<jsp:include page="footer.jsp" />
+ <div class="container center-align">
+     <br><br>
+    <h1>Iniciar Sesion</h1>
+        <!-- Page Content goes here -->
+        
+        <div class="row">
+            <form class="col s12" action="/login" method='POST'>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="icon_prefix" type="text" class="validate" name="username">
+                        <label for="icon_prefix">Usuario</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">security</i>
+                        <input id="icon_telephone" type="password" class="validate" name="password">
+                        <label for="icon_telephone">Contraseña</label>
+                    </div>
+                </div>
+                <input name="submit" type="submit" value="submit" class="btn  black hoverable" />
+                
+            </form>
+        </div>
+        <p><c:if test="${not empty errorMessge}"><div class="red-text">${errorMessge}</div></c:if></p>
+      </div>
+ <jsp:include page="footer.jsp" />
