@@ -16,12 +16,14 @@
         <nav class="black lighten-1" role="navigation">
             <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">App</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="estado">ESTADO</a></li>
                     <li><!-- Dropdown Trigger -->
                         <a class='dropdown-button ' href='#' data-activates='personasP'> Personas &#9871</a>
                     </li>
                     <li><!-- Dropdown Trigger -->
                         <a class='dropdown-button ' href='#' data-activates='direccionesP'>Direcciones &#9871</a>
+                    </li>
+                    <li><!-- Dropdown Trigger -->
+                        <a class='dropdown-button ' href='#' data-activates='paquetesP'>Paquetes &#9871</a>
                     </li>
                     <li><a href="logout">Cerrar Sesion</a></li>
                     
@@ -52,15 +54,26 @@
                     </ul>
                     <!-- Dropdown Structure -->
                     <ul id='direccionesM' class='dropdown-content'>
-                        <li><a class="waves-effect  black-text" href="departamento"><i class="material-icons">edit_location</i>departamento</a></li>
+                        <li><a class="waves-effect  black-text" href="destinatario"><i class="material-icons">edit_location</i>departamento</a></li>
                         <li><a class="waves-effect  black-text" href="municipio"><i class="material-icons">edit_location</i>municipio</a></li>
                         <li><a class="waves-effect  black-text" href="pais"><i class="material-icons">edit_location</i>  - País - </a></li>
                         <li><a class="waves-effect  black-text" href="direccion"><i class="material-icons">edit_location</i>direccion</a></li>
                     </ul>
                     
+                    
+                    <!-- Dropdown Structure -->
+                    <ul id='paquetesP' class='dropdown-content'>
+                        <li><a class="waves-effect  black-text" href="destinatario"><i class="material-icons">person_pin_circle</i>Destinatario</a></li>
+                        <li><a class="waves-effect  black-text" href="remitente"><i class="material-icons">transfer_within_a_station</i>Remitente</a></li>
+                        <li><a class="waves-effect  black-text" href="estado"><i class="material-icons">info</i>Estado</a></li>
+                        <li><a class="waves-effect  black-text" href="servicio"><i class="material-icons">directions_run</i> Servicio </a></li>
+                        <li><a class="waves-effect  black-text" href="vehiculo"><i class="material-icons">local_shipping</i>vehiculo</a></li>
+                        <li><a class="waves-effect  black-text" href="flotilla"><i class="material-icons">directions_bus</i> Flotilla </a></li>
+                        
+                    </ul>
+                    
 
-                <ul id="nav-mobile" class="side-nav">                 
-                    <li><a href="estado">ESTADO</a></li>
+                <ul id="nav-mobile" class="side-nav">   
                     <li><!-- Dropdown Trigger -->
                         <a class='dropdown-button ' href='#' data-activates='personasM'> Personas +</a>
                     </li>

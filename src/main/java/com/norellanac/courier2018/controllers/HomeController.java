@@ -16,7 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
-    //@Autowired	
+    //@Autowired
+    @GetMapping("/")
+    public String newUsuario(HttpServletRequest req) {
+        req.setAttribute("action", "saveUsuario");
+        return "login";
+    }
   
     @GetMapping("/fonts/roboto/Roboto-Light.woff")
 	public void Light(HttpServletResponse resp, HttpServletRequest req) throws IOException {
@@ -30,6 +35,11 @@ public class HomeController {
     
     @GetMapping("/fonts/roboto/Roboto-Regular.woff")
     public void Regular(HttpServletResponse resp, HttpServletRequest req) throws IOException {
+        resp.sendRedirect("/");
+    }
+    
+    @GetMapping("/fonts/roboto/Roboto-Medium.woff")
+    public void Medium(HttpServletResponse resp, HttpServletRequest req) throws IOException {
         resp.sendRedirect("/");
     }
         
