@@ -25,6 +25,9 @@
                     <li><!-- Dropdown Trigger -->
                         <a class='dropdown-button ' href='#' data-activates='paquetesP'>Paquetes &#9871</a>
                     </li>
+                    <li><!-- Dropdown Trigger -->
+                        <a class='dropdown-button ' href='#' data-activates='facturaP'>Facturación &#9871</a>
+                    </li>
                     <li><a href="logout">Cerrar Sesion</a></li>
                     
 
@@ -69,11 +72,15 @@
                         <li><a class="waves-effect  black-text" href="servicio"><i class="material-icons">directions_run</i> Servicio </a></li>
                         <li><a class="waves-effect  black-text" href="vehiculo"><i class="material-icons">local_shipping</i>vehiculo</a></li>
                         <li><a class="waves-effect  black-text" href="flotilla"><i class="material-icons">directions_bus</i> Flotilla </a></li>
-                        
                     </ul>
                     
-
-                <ul id="nav-mobile" class="side-nav">   
+                    <!-- Dropdown Structure -->
+                    <ul id='facturaP' class='dropdown-content'>
+                        <li><a class="waves-effect  black-text" href="factura"><i class="material-icons">person_pin_circle</i>Factura</a></li>
+                        <li><a class="waves-effect  black-text" href="paquete"><i class="material-icons">transfer_within_a_station</i>paquete</a></li>
+                        <li><a class="waves-effect  black-text" href="tracking"><i class="material-icons">info</i>tracking</a></li>
+                        <li><a class="waves-effect  black-text" href="detalle"><i class="material-icons">info</i>Detalle</a></li>
+                    <ul id="nav-mobile" class="side-nav">   
                     <li><!-- Dropdown Trigger -->
                         <a class='dropdown-button ' href='#' data-activates='personasM'> Personas +</a>
                     </li>
