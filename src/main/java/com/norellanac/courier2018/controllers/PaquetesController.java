@@ -6,6 +6,7 @@ import com.norellanac.courier2018.models.Conectar;
 import com.norellanac.courier2018.models.Destinatario;
 import com.norellanac.courier2018.models.Factura;
 import com.norellanac.courier2018.models.Flotilla;
+import com.norellanac.courier2018.models.Paquete;
 import com.norellanac.courier2018.models.Remitente;
 import com.norellanac.courier2018.models.Servicio;
 import com.norellanac.courier2018.models.Vehiculo;
@@ -379,23 +380,24 @@ public class PaquetesController {
     //*******************************************************************************************
     
     
-        //************tabla Factura*********
+        //************tabla paquete*********
     @GetMapping("/newPaquete")
     public String newPaquete (HttpServletRequest req) {
         req.setAttribute("action", "savePaquete");
         return "paquetes/add";
     }
+    
 
     @GetMapping("savePaquete")
-    public void savePaquete(@ModelAttribute Factura objetoDB, HttpServletResponse resp) throws IOException {
-        jdbcTemplate.update("insert into TA_FACTURA (ID_FACTURA, ID_CLIENTE, FECHA) values (?,?,?)",
-                objetoDB.getID_FACTURA(), objetoDB.getID_CLIENTE(), objetoDB.getFECHA());
+    public void savePaquete(@ModelAttribute Paquete objetoDB, HttpServletResponse resp) throws IOException {
+        jdbcTemplate.update("insert into TA_PAQUETE (ID_PAQUETE, PESO, TIPO_PAQUETE, UNIDADES ) values (?,?,?,?)",
+                objetoDB.getID_PAQUETE(), objetoDB.getPESO(), objetoDB.getTIPO_PAQUETE(), objetoDB.getUNIDADES() );
         resp.sendRedirect("/paquete");
     }
 
     @GetMapping("editPaquete")
     public String editPaquete(@RequestParam int id, HttpServletRequest req) {
-        String sql = "SELECT * FROM TA_FACTURA WHERE ID_FACTURA='" + id + "'";
+        String sql = "select * from TA_PAQUETE WHERE ID_PAQUETE='" + id + "'";
         List data = this.jdbcTemplate.queryForList(sql);
         req.setAttribute("data", data.get(0));//obtiene un array con un registro en la posicion 0
         req.setAttribute("action", "updatePaquete");
@@ -403,28 +405,29 @@ public class PaquetesController {
     }
 
     @GetMapping("/updatePaquete")
-    public void updatePaquete(@ModelAttribute Factura objDb, HttpServletResponse resp) throws IOException {
-        jdbcTemplate.update("update TA_FACTURA "
-                + "set ID_CLIENTE=?, "
-                + "FECHA=?"
-                + "where ID_FACTURA=?",
-                objDb.getID_CLIENTE(), objDb.getFECHA(), objDb.getID_FACTURA());
+    public void updatePaquete(@ModelAttribute Paquete objDb, HttpServletResponse resp) throws IOException {
+        jdbcTemplate.update("update TA_PAQUETE "
+                + "set PESO=?, "
+                + "TIPO_PAQUETE=?,"
+                + "UNIDADES=?"
+                + "where ID_PAQUETE=?",
+                objDb.getPESO(), objDb.getTIPO_PAQUETE(), objDb.getUNIDADES(), objDb.getID_PAQUETE());
         resp.sendRedirect("paquete");
     }
 
     @GetMapping("/deletePaquete")
     public void deletePaquete(@RequestParam long id, HttpServletRequest req, HttpServletResponse resp) throws IOException {
         this.jdbcTemplate.update(
-                "delete from TA_FACTURA "
+                "delete from TA_PAQUETE "
                 + "where "
-                + "ID_FACTURA=? ",
+                + "ID_PAQUETE=? ",
                 id);
         resp.sendRedirect("paquete");
     }
 
     @GetMapping("/paquete")
     public String paquete(HttpServletRequest req) {
-        String sql = "select id_factura, id_cliente, to_char(fecha, 'MM/DD/YYYY') AS FECHA from ta_factura order by ID_FACTURA desc";
+        String sql = "select * from TA_PAQUETE order by ID_PAQUETE desc";
         List datos = this.jdbcTemplate.queryForList(sql);
         req.setAttribute("datos", datos);
         //req.setAttribute("mode", "BOOK_VIEW");

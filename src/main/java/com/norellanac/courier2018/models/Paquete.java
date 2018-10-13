@@ -3,33 +3,44 @@ package com.norellanac.courier2018.models;
 
 
 public class Paquete {
-    private int ID_REMITENTE, ID_CLIENTE, ID_DIRECCION ;
-
+    //TA_PAQUETE
+    private int ID_PAQUETE, PESO ;
+    String TIPO_PAQUETE, UNIDADES;
+    
     public Paquete() {
     }
 
-    public int getID_REMITENTE() {
-        return ID_REMITENTE;
+    public int getID_PAQUETE() {
+        return ID_PAQUETE;
     }
 
-    public void setID_REMITENTE(int ID_REMITENTE) {
-        this.ID_REMITENTE = ID_REMITENTE;
+    public void setID_PAQUETE(int ID_PAQUETE) {
+        this.ID_PAQUETE = ID_PAQUETE;
     }
 
-    public int getID_CLIENTE() {
-        return ID_CLIENTE;
+    public int getPESO() {
+        return PESO;
     }
 
-    public void setID_CLIENTE(int ID_CLIENTE) {
-        this.ID_CLIENTE = ID_CLIENTE;
+    public void setPESO(int PESO) {
+        this.PESO = PESO;
     }
 
-    public int getID_DIRECCION() {
-        return ID_DIRECCION;
+
+    public String getTIPO_PAQUETE() {
+        return TIPO_PAQUETE;
     }
 
-    public void setID_DIRECCION(int ID_DIRECCION) {
-        this.ID_DIRECCION = ID_DIRECCION;
+    public void setTIPO_PAQUETE(String TIPO_PAQUETE) {
+        this.TIPO_PAQUETE = TIPO_PAQUETE;
+    }
+
+    public String getUNIDADES() {
+        return UNIDADES;
+    }
+
+    public void setUNIDADES(String UNIDADES) {
+        this.UNIDADES = UNIDADES;
     }
     
     
